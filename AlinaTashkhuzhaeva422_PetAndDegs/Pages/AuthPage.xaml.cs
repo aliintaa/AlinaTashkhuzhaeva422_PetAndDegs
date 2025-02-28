@@ -30,7 +30,7 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-        
+   if (App.db.Users.FirstOrDefault(x => ))
         }
     }
 }

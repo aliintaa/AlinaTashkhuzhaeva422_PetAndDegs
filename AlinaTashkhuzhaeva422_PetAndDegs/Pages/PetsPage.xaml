@@ -14,6 +14,7 @@
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
+            <TextBlock>Поиск</TextBlock>
             <TextBox x:Name="SearchTextBox"/>
             <ListView x:Name="PetsListView">
                 <ListView.View>
