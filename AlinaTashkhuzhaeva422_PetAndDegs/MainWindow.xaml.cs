@@ -23,14 +23,12 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs
     {
         public MainWindow()
         {
-            InitializeComponent();
-            MyFrame.NavigationService.Navigate(new Pages.AuthPage());
+            InitializeComponent(); 
+            App.main = this;
+            myframe.NavigationService.Navigate(new Pages.AuthorizationPage());
         }
 
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
+      
     }
 }
 

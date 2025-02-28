@@ -7,13 +7,8 @@
         mc:Ignorable="d"
         Title="CetAndDog" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="197*"/>
-            <RowDefinition Height="50*"/>
-        </Grid.RowDefinitions>
+     
         <Frame NavigationUIVisibility="Hidden" x:Name="MyFrame"></Frame >
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Button Width="200" Height="50" x:Name="BackBtn" Click="BackBtn_Click">Назад</Button>
-        </StackPanel>
+
     </Grid>
 </Window>

@@ -30,7 +30,24 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-   if (App.db.Users.FirstOrDefault(x => ))
+            User user = App.db.User.FirstOrDefault(x => x.Login == LoginTbl.Text && x.Password == PasswordBox.Password);
+            if (user != null)
+            {
+                if (user.FirstName == "Деля")
+                {
+                    App.id_user = 2;
+                    App.main.myframe.NavigationService.Navigate(new Pages.PetList());
+                }
+                else if (user.FirstName == "Андрей")
+                {
+                    App.id_user = 1;
+                    App.main.myframe.NavigationService.Navigate(new Pages.PetList());
+                }
+            }
+            else
+            {
+                MessageBox.Show("нет");
+            }
         }
     }
 }

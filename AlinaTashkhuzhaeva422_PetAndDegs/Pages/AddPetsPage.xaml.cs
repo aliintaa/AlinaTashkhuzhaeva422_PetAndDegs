@@ -24,5 +24,61 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
         {
             InitializeComponent();
         }
+        private void BrowseButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    byte[] imageBytes = File.ReadAllBytes(openFileDialog.FileName);
+                    bytes = imageBytes;
+
+                    // Отображаем изображение в интерфейсе
+                    BitmapImage bitmap = new BitmapImage();
+                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    {
+                        bitmap.BeginInit();
+                        bitmap.StreamSource = ms;
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.EndInit();
+                        bitmap.Freeze();
+                    }
+                    PetImage.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка загрузки изображения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
+        }
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (bytes != null && PetNameComboBox.SelectedIndex != -1)
+            {
+                App.db.Pet.Add(new Pet()
+                {
+                    Name = (PetNameComboBox.SelectedItem as ComboBoxItem).Content.ToString(),
+                    Description = DescriptionTextBox.Text,
+                    Image = bytes,
+                    IdUser = PetNameComboBox.SelectedIndex + 1
+
+                });
+                App.db.SaveChanges();
+                App.main.myframe.NavigationService.Navigate(new Pages.PetList());
+            }
+            else
+            {
+                MessageBox.Show("Заполни инфу");
+            }
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.main.myframe.NavigationService.GoBack();
+        }
     }
 }
