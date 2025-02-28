@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +22,16 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
     /// </summary>
     public partial class AuthPage : Page
     {
+     
         public AuthPage()
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+        
+        }
     }
 }
+

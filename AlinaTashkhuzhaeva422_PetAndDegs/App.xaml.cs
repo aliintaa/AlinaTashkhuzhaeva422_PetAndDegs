@@ -13,5 +13,6 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs
     /// </summary>
     public partial class App : Application
     {
+        public static AlinaTashkhuzhaeva422_PetAndDogsEntities1 db = new AlinaTashkhuzhaeva422_PetAndDogsEntities1();
     }
 }

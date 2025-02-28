@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AlinaTashkhuzhaeva422_PetAndDegs
+namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AddPetsPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddPetsPage : Page
     {
-        public MainWindow()
+        public AddPetsPage()
         {
             InitializeComponent();
-            MyFrame.NavigationService.Navigate(new Pages.AuthPage());
-        }
-
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }
-
