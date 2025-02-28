@@ -23,6 +23,27 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
         public PetsPage()
         {
             InitializeComponent();
+            Search();
+        }
+        public void Search()
+        {
+            if (poisk.Text.Length != 0)
+            {
+                PetsListView.ItemsSource = null;
+                PetsListView.ItemsSource = App.db.Pet.Where(x => x.Description.ToLower().Contains(search.Text.ToLower()) && x.IdUser == App.id_user).ToList();
+            }
+            else
+            {
+                PetsListView.ItemsSource = App.db.Pet.Where(x => x.IdUser == App.id_user).ToList();
+            }
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.main.myframe.NavigationService.Navigate(new Pages.AddPet());
+        }
+        private void poisk_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Search();
         }
     }
 }

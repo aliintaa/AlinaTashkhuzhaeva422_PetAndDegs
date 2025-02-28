@@ -22,7 +22,7 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
     /// </summary>
     public partial class AuthPage : Page
     {
-     
+
         public AuthPage()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = App.db.User.FirstOrDefault(x => x.Login == LoginTbl.Text && x.Password == PasswordBox.Password);
+            User user = App.db.User.FirstOrDefault(x => x.Login == UsernameTextBox.Text);
             if (user != null)
             {
                 if (user.FirstName == "Деля")

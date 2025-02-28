@@ -14,21 +14,26 @@
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock>Поиск</TextBlock>
+            <TextBlock FontWeight="Bold" FontSize="20">Поиск</TextBlock>
             <TextBox x:Name="SearchTextBox"/>
             <ListView x:Name="PetsListView">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Photo" DisplayMemberBinding="{Binding Photo}" Width="50"/>
-                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="50"/>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
-                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="200"/>
+                        <GridViewColumn Header="Фото">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding img}"  Width="50" Height="50" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Description}" Width="200"/>
                     </GridView>
                 </ListView.View>
             </ListView>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button Width="200" Content="Добавить питомца" Height="50"/>
+            <Button  FontWeight="Bold" FontSize="20" Background="Coral" Foreground="black" Width="200" Content="Добавить питомца" Height="50"/>
         </StackPanel>
     </Grid>
 </Page>
