@@ -30,18 +30,18 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = App.db.User.FirstOrDefault(x => x.Login == UsernameTextBox.Text);
+            Role user = App.db.Role.FirstOrDefault(x => x.IdRole.ToString() == UsernameTextBox.Text);
             if (user != null)
             {
-                if (user.FirstName == "Деля")
-                {
-                    App.id_user = 2;
-                    App.main.myframe.NavigationService.Navigate(new Pages.PetList());
-                }
-                else if (user.FirstName == "Андрей")
+                if (user.IdRole == 1)
                 {
                     App.id_user = 1;
-                    App.main.myframe.NavigationService.Navigate(new Pages.PetList());
+                    App.main.MyFrame.NavigationService.Navigate(new Pages.PetsPage());
+                }
+                else if (user.IdRole == 2)
+                {
+                    App.id_user = 2;
+                    App.main.MyFrame.NavigationService.Navigate(new Pages.PetsPage());
                 }
             }
             else

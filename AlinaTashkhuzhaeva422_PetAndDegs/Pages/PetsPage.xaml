@@ -15,7 +15,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBlock FontWeight="Bold" FontSize="20">Поиск</TextBlock>
-            <TextBox x:Name="SearchTextBox"/>
+            <TextBox x:Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged"/>
+            <Label  FontWeight="Bold" FontSize="20" Content="Питомец:" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#333333"/>
+           
             <ListView x:Name="PetsListView">
                 <ListView.View>
                     <GridView>
@@ -33,7 +35,7 @@
             </ListView>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Button  FontWeight="Bold" FontSize="20" Background="Coral" Foreground="black" Width="200" Content="Добавить питомца" Height="50"/>
+            <Button  FontWeight="Bold" FontSize="20" Background="Coral" Foreground="black" Width="200" Content="Добавить питомца" Height="50" Click="Button_Click_1"/>
         </StackPanel>
     </Grid>
 </Page>

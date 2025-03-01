@@ -13,10 +13,10 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AlinaTashkhuzhaeva422_PetAndDogsEntities1 : DbContext
+    public partial class AlinaTashkhuzhaeva422_PetAndDogsEntities2 : DbContext
     {
-        public AlinaTashkhuzhaeva422_PetAndDogsEntities1()
-            : base("name=AlinaTashkhuzhaeva422_PetAndDogsEntities1")
+        public AlinaTashkhuzhaeva422_PetAndDogsEntities2()
+            : base("name=AlinaTashkhuzhaeva422_PetAndDogsEntities2")
         {
         }
     

@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4d2565cce48643a0b088edca1bedcffc" Name="Diagram1">
-        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.Pets" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.Role" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.Users" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="AlinaTashkhuzhaeva422_PetAndDogsModel.FK_Users_Pets" ManuallyRouted="false" />
+      <Diagram DiagramId="8b81bee2a95c4abb8c07c9f5bef09168" Name="Diagram1">
+        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.Pets" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.Role" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlinaTashkhuzhaeva422_PetAndDogsModel.Users" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="AlinaTashkhuzhaeva422_PetAndDogsModel.FK_Pets_Users" ManuallyRouted="false" />
         <AssociationConnector Association="AlinaTashkhuzhaeva422_PetAndDogsModel.FK_Users_Role" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

@@ -14,11 +14,17 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.Pets = new HashSet<Pets>();
+        }
+    
         public int IdUsers { get; set; }
         public Nullable<int> IdRole { get; set; }
-        public Nullable<int> IdPets { get; set; }
     
-        public virtual Pets Pets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pets> Pets { get; set; }
         public virtual Role Role { get; set; }
     }
 }

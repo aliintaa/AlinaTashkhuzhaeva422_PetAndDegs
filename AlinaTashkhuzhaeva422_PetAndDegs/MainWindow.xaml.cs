@@ -25,7 +25,7 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs
         {
             InitializeComponent(); 
             App.main = this;
-            myframe.NavigationService.Navigate(new Pages.AuthorizationPage());
+            MyFrame.NavigationService.Navigate(new Pages.AuthPage());
         }
 
       

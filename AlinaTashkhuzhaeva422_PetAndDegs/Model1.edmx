@@ -13,6 +13,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="PhotoPath" Type="varbinary(max)" />
+          <Property Name="IdUsers" Type="int" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -37,17 +38,16 @@
           </Key>
           <Property Name="IdUsers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdRole" Type="int" />
-          <Property Name="IdPets" Type="int" />
         </EntityType>
-        <Association Name="FK_Users_Pets">
-          <End Role="Pets" Type="Self.Pets" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+        <Association Name="FK_Pets_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Pets" Type="Self.Pets" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pets">
-              <PropertyRef Name="IdPets" />
+            <Principal Role="Users">
+              <PropertyRef Name="IdUsers" />
             </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="IdPets" />
+            <Dependent Role="Pets">
+              <PropertyRef Name="IdUsers" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -68,9 +68,9 @@
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Users_Pets" Association="Self.FK_Users_Pets">
-            <End Role="Pets" EntitySet="Pets" />
+          <AssociationSet Name="FK_Pets_Users" Association="Self.FK_Pets_Users">
             <End Role="Users" EntitySet="Users" />
+            <End Role="Pets" EntitySet="Pets" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
             <End Role="Role" EntitySet="Role" />
@@ -90,7 +90,8 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Pets" FromRole="Pets" ToRole="Users" />
+          <Property Name="IdUsers" Type="Int32" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Pets_Users" FromRole="Pets" ToRole="Users" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -116,19 +117,18 @@
           </Key>
           <Property Name="IdUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdRole" Type="Int32" />
-          <Property Name="IdPets" Type="Int32" />
-          <NavigationProperty Name="Pets" Relationship="Self.FK_Users_Pets" FromRole="Users" ToRole="Pets" />
+          <NavigationProperty Name="Pets" Relationship="Self.FK_Pets_Users" FromRole="Users" ToRole="Pets" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
-        <Association Name="FK_Users_Pets">
-          <End Role="Pets" Type="Self.Pets" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+        <Association Name="FK_Pets_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Pets" Type="Self.Pets" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pets">
-              <PropertyRef Name="IdPets" />
+            <Principal Role="Users">
+              <PropertyRef Name="IdUsers" />
             </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="IdPets" />
+            <Dependent Role="Pets">
+              <PropertyRef Name="IdUsers" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -144,14 +144,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AlinaTashkhuzhaeva422_PetAndDogsEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AlinaTashkhuzhaeva422_PetAndDogsEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Pets" EntityType="Self.Pets" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK_Users_Pets" Association="Self.FK_Users_Pets">
-            <End Role="Pets" EntitySet="Pets" />
+          <AssociationSet Name="FK_Pets_Users" Association="Self.FK_Pets_Users">
             <End Role="Users" EntitySet="Users" />
+            <End Role="Pets" EntitySet="Pets" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
             <End Role="Role" EntitySet="Role" />
@@ -163,7 +163,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище AlinaTashkhuzhaeva422_PetAndDogsModelContainer" CdmEntityContainer="AlinaTashkhuzhaeva422_PetAndDogsEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AlinaTashkhuzhaeva422_PetAndDogsModelContainer" CdmEntityContainer="AlinaTashkhuzhaeva422_PetAndDogsEntities2">
           <EntitySetMapping Name="Pets">
             <EntityTypeMapping TypeName="AlinaTashkhuzhaeva422_PetAndDogsModel.Pets">
               <MappingFragment StoreEntitySet="Pets">
@@ -171,6 +171,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -198,7 +199,6 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-                <ScalarProperty Name="IdPets" ColumnName="IdPets" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
