@@ -46,7 +46,7 @@ namespace AlinaTashkhuzhaeva422_PetAndDegs.Pages
             }
             else
             {
-                MessageBox.Show("нет");
+                MessageBox.Show("такого хозяина нет!..");
             }
         }
     }
